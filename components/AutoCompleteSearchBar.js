@@ -1,26 +1,9 @@
 import Autocomplete from "react-native-autocomplete-input";
 import React, { Component } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import PokemonCardImage from "./PokemonCardImage";
 import PokemonDisplayContainer from "./PokemonDisplayContainer";
 
-const API = "https://pokeapi.co/api/v2";
-// const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII"];
-
-class AutocompleteExample extends Component {
-  // static renderPokemon(pokemon) {
-  //   // const { title, director, opening_crawl, episode_id } = film;
-  //   const { name, url } = pokemon;
-  //   // const roman = episode_id < ROMAN.length ? ROMAN[episode_id] : episode_id;
-  //   // this.props.fetchSpecificPokemon(url);
-  //   // return (
-  //   //   <View>
-  //   //     <Text style={styles.directorText}>({name})</Text>
-  //   //     <Text style={styles.openingText}>{url}</Text> //this will fetch pokemon
-  //   //   </View>
-  //   // );
-  // }
-
+class AutoCompleteSearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -31,7 +14,7 @@ class AutocompleteExample extends Component {
   }
 
   componentDidMount() {
-    fetch(`${API}/pokemon/?limit=801&offset=0`)
+    fetch(`${this.props.url}/pokemon/?limit=801&offset=0`)
       .then(res => res.json())
       .then(json => {
         const { results: pokemon } = json;
@@ -107,12 +90,6 @@ class AutocompleteExample extends Component {
 }
 
 const styles = StyleSheet.create({
-  // container: {
-  //   // backgroundColor: "#F5FCFF",
-  //   flex: 1,
-  //   paddingTop: 10,
-  //   paddingBottom: 10
-  // },
   autocompleteContainer: {
     marginLeft: 10,
     marginRight: 10
@@ -123,12 +100,6 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10
   },
-  descriptionContainer: {
-    // `backgroundColor` needs to be set otherwise the
-    // autocomplete input will disappear on text input.
-    backgroundColor: "#F5FCFF",
-    marginTop: 8
-  },
   textView: {
     justifyContent: "center",
     alignItems: "center"
@@ -137,25 +108,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "black"
   }
-  // infoText: {
-  //   textAlign: "center"
-  // },
-  // titleText: {
-  //   fontSize: 18,
-  //   fontWeight: "500",
-  //   marginBottom: 10,
-  //   marginTop: 10,
-  //   textAlign: "center"
-  // },
-  // directorText: {
-  //   color: "grey",
-  //   fontSize: 12,
-  //   marginBottom: 10,
-  //   textAlign: "center"
-  // },
-  // openingText: {
-  //   textAlign: "center"
-  // }
 });
 
-export default AutocompleteExample;
+export default AutoCompleteSearchBar;

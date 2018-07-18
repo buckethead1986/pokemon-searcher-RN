@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import Swiper from "react-native-swiper";
-import PokeAutoComplete from "./PokeAutoComplete";
-import TitleText from "./TitleText";
+import AutoCompleteSearchBar from "./AutoCompleteSearchBar";
 import TypeContainer from "./TypeContainer";
-
-// const { View, Text, StyleSheet } = React;
+import TitleText from "./TitleText";
 
 class Home extends Component {
   viewStyle() {
@@ -21,16 +19,16 @@ class Home extends Component {
     return (
       <Swiper
         loop={false}
-        showsPagination={false}
+        showsPagination={true}
         index={1}
         keyboardShouldPersistTaps="always"
       >
         <View style={styles.container} keyboardShouldPersistTaps="always">
-          <PokeAutoComplete />
+          <AutoCompleteSearchBar url={this.props.url} />
         </View>
 
         <View style={styles.container}>
-          <TypeContainer />
+          <TypeContainer url={this.props.url} />
         </View>
 
         <View style={this.viewStyle()}>
@@ -42,20 +40,9 @@ class Home extends Component {
 }
 
 var styles = StyleSheet.create({
-  // container: {
-  //   flex: 1
-  // },
-  view: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   container: {
     flex: 1,
     paddingTop: 50
-    // backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "flex-start"
   }
 });
 

@@ -10,6 +10,7 @@ class CreateButton extends Component {
         onPress={() =>
           this.props.onPress({
             type: this.props.type,
+            value: this.props.value,
             backgroundColor: this.props.style.backgroundColor
           })}
         disabled={this.props.isDisabled}

@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { ScrollView, View, Picker, StyleSheet, Text } from "react-native";
-import CreateDynamicButtons from "./CreateDynamicButtons";
-import DamageRatiosContainer from "./DamageRatiosContainer";
-import { typeButtons } from "./Constants";
-
-import Button from "./Button";
+import { ScrollView, View, Text } from "react-native";
+import GridOfTypeButtonsContainer from "./gridOfTypeButtonsContainer/GridOfTypeButtonsContainer";
+import DamageRatiosContainer from "./damageRatiosContainer/DamageRatiosContainer";
+import TypeButton from "./gridOfTypeButtonsContainer/TypeButton";
+import { typeButtons } from "../../constants/Constants";
+import { capitalize } from "../../helperMethods/HelperMethods";
+import styles from "../../styles/Styles";
 
 class TypeContainer extends Component {
   state = {
@@ -52,12 +53,16 @@ class TypeContainer extends Component {
   render() {
     return (
       <ScrollView>
-        <View style={styles.textView}>
-          <Text style={styles.text}>Damage Relations by Type</Text>
+        <View style={styles.centerView}>
+          <Text style={styles.pageHeaderText}>Damage Relations by Type</Text>
         </View>
-        <CreateDynamicButtons data={typeButtons} onPress={this.onPress} />
-        <Button
-          type={this.state.shownType.name}
+        <GridOfTypeButtonsContainer data={typeButtons} onPress={this.onPress} />
+        <TypeButton
+          type={
+            this.state.shownType.name
+              ? capitalize(this.state.shownType.name)
+              : ""
+          }
           style={{
             backgroundColor: this.state.shownType.backgroundColor,
             margin: 30,
@@ -80,16 +85,5 @@ class TypeContainer extends Component {
     );
   }
 }
-
-var styles = StyleSheet.create({
-  textView: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  text: {
-    fontSize: 20,
-    color: "black"
-  }
-});
 
 export default TypeContainer;

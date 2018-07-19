@@ -1,5 +1,5 @@
 import React from "react";
-import SwipeContainer from "./components/SwipeContainer";
+import SwipeContainer from "./components/containers/swipeContainer/SwipeContainer";
 
 const url = "https://pokeapi.co/api/v2";
 

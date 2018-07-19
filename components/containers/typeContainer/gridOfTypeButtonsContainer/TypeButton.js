@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
+import styles from "../../../styles/Styles";
 
-class CreateButton extends Component {
+class TypeButton extends Component {
   render() {
     const { style } = this.props;
     return (
@@ -15,22 +16,10 @@ class CreateButton extends Component {
           })}
         disabled={this.props.isDisabled}
       >
-        <Text style={styles.text}> {this.props.type} </Text>
+        <Text style={styles.buttonText}> {this.props.type} </Text>
       </TouchableOpacity>
     );
   }
 }
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    borderRadius: 10,
-    padding: 10,
-    margin: 4
-  },
-  text: {
-    fontSize: 18,
-    color: "white"
-  }
-});
-export default CreateButton;
+export default TypeButton;

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import Swiper from "react-native-swiper";
-import AutoCompleteSearchBar from "./AutoCompleteSearchBar";
-import TypeContainer from "./TypeContainer";
-import TitleText from "./TitleText";
+import PokemonDisplayContainer from "../pokemonDisplayContainer/PokemonDisplayContainer";
+import TypeContainer from "../typeContainer/TypeContainer";
+import TitleText from "../../TitleText";
+import styles from "../../styles/Styles";
 
-class Home extends Component {
+class SwipeContainer extends Component {
   viewStyle() {
     return {
       flex: 1,
@@ -24,7 +25,7 @@ class Home extends Component {
         keyboardShouldPersistTaps="always"
       >
         <View style={styles.container} keyboardShouldPersistTaps="always">
-          <AutoCompleteSearchBar url={this.props.url} />
+          <PokemonDisplayContainer url={this.props.url} />
         </View>
 
         <View style={styles.container}>
@@ -39,11 +40,4 @@ class Home extends Component {
   }
 }
 
-var styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 50
-  }
-});
-
-export default Home;
+export default SwipeContainer;

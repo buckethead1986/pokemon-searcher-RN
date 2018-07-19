@@ -1,31 +1,16 @@
 import React, { Component } from "react";
-import { TouchableOpacity, StyleSheet, Text } from "react-native";
+import { TouchableOpacity, Text } from "react-native";
 import { Col, Row, Grid } from "react-native-easy-grid";
-import Button from "./Button";
-import { typeData } from "./Constants";
+import TypeButton from "./TypeButton";
+import { typeData } from "../../../constants/Constants";
+import styles from "../../../styles/Styles";
 
-// const typeData = {
-//   normal: ["Normal", 1, "#A8A877"],
-//   fighting: ["Fighting", 2, "#C03029"],
-//   flying: ["Flying", 3, "#A790F0"],
-//   poison: ["Poison", 4, "#9F3F9F"],
-//   ground: ["Ground", 5, "#E0C067"],
-//   rock: ["Rock", 6, "#B9A037"],
-//   bug: ["Bug", 7, "#A8B820"],
-//   ghost: ["Ghost", 8, "#6F5798"],
-//   steel: ["Steel", 9, "#B8B8D0"],
-//   fire: ["Fire", 10, "#F08031"],
-//   water: ["Water", 11, "#6890F0"],
-//   grass: ["Grass", 12, "#78C84F"],
-//   electric: ["Electric", 13, "#F8D030"],
-//   psychic: ["Psychic", 14, "#F85887"],
-//   ice: ["Ice", 15, "#97D8D8"],
-//   dragon: ["Dragon", 16, "#7039F8"],
-//   dark: ["Dark", 17, "#6F5748"],
-//   fairy: ["Fairy", 18, "#F0B6BC"]
-// };
-
-class CreateButton extends Component {
+//dynamic code to create a grid of 4 columns of TouchableOpacity buttons. Hardcoding this is much quicker,
+//but this is DRYer for reuse in DamageRatios and TypeContainer.
+//This will render an indetermiinate number of buttons into rows of 4 columns each, with a 'Nothing' button
+//created for damage ratios with no results.
+//I am unaware of a React method that exists to accomplish this (Do tell if you know of one!) (Flexbox didn't render a nice grid like I wanted)
+class GridOfTypeButtonsContainer extends Component {
   createButtonGrid = data => {
     let result = [];
     if (data.length === 0) {
@@ -73,7 +58,7 @@ class CreateButton extends Component {
 
   renderButton = ([type, value, backgroundColor], isDisabled) => {
     return (
-      <Button
+      <TypeButton
         type={type}
         value={value}
         style={{ backgroundColor: backgroundColor }}
@@ -87,8 +72,13 @@ class CreateButton extends Component {
     return (
       <Row key={`${this.props.data[2]}`} style={{ height: 50 }}>
         <Col>
-          <TouchableOpacity style={styles.button} disabled={true}>
-            <Text style={styles.text}>Nothing</Text>
+          <TouchableOpacity
+            style={[styles.button, styles.nothingButtonBorder]}
+            disabled={true}
+          >
+            <Text style={[styles.buttonText, styles.nothingButtonText]}>
+              Nothing
+            </Text>
           </TouchableOpacity>
         </Col>
         <Col />
@@ -103,18 +93,18 @@ class CreateButton extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  button: {
-    alignItems: "center",
-    borderRadius: 10,
-    borderWidth: 1.0,
-    borderColor: "black",
-    padding: 10,
-    margin: 4
-  },
-  text: {
-    fontSize: 18
-  }
-});
+// const styles = StyleSheet.create({
+//   button: {
+//     alignItems: "center",
+//     borderRadius: 10,
+//     borderWidth: 1.0,
+//     borderColor: "black",
+//     padding: 10,
+//     margin: 4
+//   },
+//   text: {
+//     fontSize: 18
+//   }
+// });
 
-export default CreateButton;
+export default GridOfTypeButtonsContainer;

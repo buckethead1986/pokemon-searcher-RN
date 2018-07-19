@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import CreateDynamicButtons from "./CreateDynamicButtons";
+import { View, Text } from "react-native";
+import GridOfTypeButtonsContainer from "../gridOfTypeButtonsContainer/GridOfTypeButtonsContainer";
+import { capitalize } from "../../../helperMethods/HelperMethods";
+import styles from "../../../styles/Styles";
 
 class DamageRatio extends Component {
   renderDamageRatios = damageRatio => {
@@ -10,21 +12,17 @@ class DamageRatio extends Component {
     return [data, false, damageRatio];
   };
 
-  capitalize = name => {
-    return name.charAt(0).toUpperCase() + name.substr(1);
-  };
-
   renderTextAsToOrFrom = () => {
     let splitText = this.props.type.split("_");
     if (splitText[splitText.length - 1] === "to") {
       return (
-        `${this.capitalize(this.props.shownType.name)}` +
+        `${capitalize(this.props.shownType.name)}` +
         " deals " +
         splitText.join(" ")
       );
     } else {
       return (
-        `${this.capitalize(this.props.shownType.name)}` +
+        `${capitalize(this.props.shownType.name)}` +
         " takes " +
         splitText.join(" ")
       );
@@ -33,9 +31,11 @@ class DamageRatio extends Component {
 
   render() {
     return (
-      <View style={styles.view}>
-        <Text style={styles.text}>{this.renderTextAsToOrFrom()}</Text>
-        <CreateDynamicButtons
+      <View style={styles.damageRatioView}>
+        <Text style={styles.damageRatioHeader}>
+          {this.renderTextAsToOrFrom()}
+        </Text>
+        <GridOfTypeButtonsContainer
           data={this.renderDamageRatios(this.props.type)}
           onPress={this.props.onPress}
         />
@@ -43,15 +43,5 @@ class DamageRatio extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 20,
-    marginBottom: 5
-  },
-  view: {
-    margin: 5
-  }
-});
 
 export default DamageRatio;

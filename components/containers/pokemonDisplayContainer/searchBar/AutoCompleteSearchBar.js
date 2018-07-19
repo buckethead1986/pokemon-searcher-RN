@@ -1,7 +1,8 @@
 import Autocomplete from "react-native-autocomplete-input";
 import React, { Component } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import PokemonDisplayContainer from "./PokemonDisplayContainer";
+import { View, ScrollView, Text, TouchableOpacity } from "react-native";
+import PokemonCardImage from "../PokemonCardImage";
+import styles from "../../../styles/Styles";
 
 class AutoCompleteSearchBar extends Component {
   constructor(props) {
@@ -52,8 +53,8 @@ class AutoCompleteSearchBar extends Component {
 
     return (
       <View keyboardShouldPersistTaps="always">
-        <View style={styles.textView}>
-          <Text style={styles.text}>Search Pokemon by Name</Text>
+        <View style={styles.centerView}>
+          <Text style={styles.pageHeaderText}>Search Pokemon by Name</Text>
         </View>
         <Autocomplete
           autoCapitalize="none"
@@ -80,7 +81,9 @@ class AutoCompleteSearchBar extends Component {
           }}
         />
         {Object.keys(this.state.displayPokemon).length !== 0 ? (
-          <PokemonDisplayContainer pokemon={this.state.displayPokemon} />
+          <ScrollView>
+            <PokemonCardImage displayPokemon={this.state.displayPokemon} />
+          </ScrollView>
         ) : (
           ""
         )}
@@ -88,26 +91,5 @@ class AutoCompleteSearchBar extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  autocompleteContainer: {
-    marginLeft: 10,
-    marginRight: 10
-  },
-  itemText: {
-    fontSize: 15,
-    margin: 10,
-    marginLeft: 10,
-    marginRight: 10
-  },
-  textView: {
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  text: {
-    fontSize: 20,
-    color: "black"
-  }
-});
 
 export default AutoCompleteSearchBar;

@@ -7,6 +7,7 @@ import TitleText from "../../TitleText";
 import styles from "../../styles/Styles";
 
 class SwipeContainer extends Component {
+  state = {};
   viewStyle() {
     return {
       flex: 1,
@@ -16,6 +17,11 @@ class SwipeContainer extends Component {
     };
   }
 
+  //autoscrolls to typeContainer page when type button is clicked on PokemonDisplayContainer page, and updates shownType to the type selected.
+  onPress = (type, value, backgroundColor) => {
+    this.setState({ shownType: type }, () => this.swiper.scrollBy(1));
+  };
+
   render() {
     return (
       <Swiper
@@ -23,13 +29,20 @@ class SwipeContainer extends Component {
         showsPagination={true}
         index={1}
         keyboardShouldPersistTaps="always"
+        ref={component => (this.swiper = component)}
       >
         <View style={styles.container} keyboardShouldPersistTaps="always">
-          <PokemonDisplayContainer url={this.props.url} />
+          <PokemonDisplayContainer
+            url={this.props.url}
+            onPress={this.onPress}
+          />
         </View>
 
         <View style={styles.container}>
-          <TypeContainer url={this.props.url} />
+          <TypeContainer
+            url={this.props.url}
+            shownType={this.state.shownType}
+          />
         </View>
 
         <View style={this.viewStyle()}>

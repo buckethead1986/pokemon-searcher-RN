@@ -13,16 +13,22 @@ class TypeContainer extends Component {
     allTypeData: {}
   };
 
-  onPress = type => {
-    this.checkForTypeDataBeforePingingAPI(type);
-  };
-
   componentDidMount() {
     this.fetchData({
       value: 1,
       backgroundColor: "#A8A877"
     });
   }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.shownType !== this.state.shownType) {
+      this.checkForTypeDataBeforePingingAPI(nextProps.shownType);
+    }
+  }
+
+  onPress = type => {
+    this.checkForTypeDataBeforePingingAPI(type);
+  };
 
   //reduces pings to API.  First checks if the data is in state (allTypeData), fetches and stores new data if not
   checkForTypeDataBeforePingingAPI = type => {

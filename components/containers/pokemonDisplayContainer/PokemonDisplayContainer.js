@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { View } from "react-native";
-import AutoCompleteSearchBar from "./searchBar/AutoCompleteSearchBar";
+import { View, ScrollView } from "react-native";
+import PokemonSearchBar from "./PokemonSearchBar";
 
 class PokemonDisplayContainer extends Component {
   render() {
     return (
       <View>
-        <AutoCompleteSearchBar url={this.props.url} />
+        <PokemonSearchBar url={this.props.url} onPress={this.props.onPress} />
       </View>
     );
   }

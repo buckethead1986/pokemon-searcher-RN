@@ -93,18 +93,4 @@ class GridOfTypeButtonsContainer extends Component {
   }
 }
 
-// const styles = StyleSheet.create({
-//   button: {
-//     alignItems: "center",
-//     borderRadius: 10,
-//     borderWidth: 1.0,
-//     borderColor: "black",
-//     padding: 10,
-//     margin: 4
-//   },
-//   text: {
-//     fontSize: 18
-//   }
-// });
-
 export default GridOfTypeButtonsContainer;

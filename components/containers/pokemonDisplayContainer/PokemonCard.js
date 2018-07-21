@@ -3,7 +3,7 @@ import { View, Image, Text } from "react-native";
 import PokemonType from "./PokemonType";
 import styles from "../../styles/Styles";
 
-export default class PokemonCardImage extends Component {
+export default class PokemonCard extends Component {
   render() {
     return (
       <View>
@@ -15,7 +15,7 @@ export default class PokemonCardImage extends Component {
         </View>
         <PokemonType
           types={this.props.displayPokemon.types}
-          onPress={this.props.onPress}
+          changeShownType={this.props.changeShownType}
         />
 
         <Text>{this.props.displayPokemon.sprites.front_default}</Text>

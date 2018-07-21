@@ -4,7 +4,7 @@ import DamageRatio from "./DamageRatio";
 import { ratios } from "../../../constants/Constants";
 
 class DamageRatiosContainer extends Component {
-  renderDamageRatioView = index => {
+  renderDamageRatioView = () => {
     let result = [];
     for (var i = 0; i < ratios.length; i++) {
       result.push(
@@ -12,7 +12,7 @@ class DamageRatiosContainer extends Component {
           key={`${ratios[i]}`}
           type={ratios[i]}
           shownType={this.props.shownType}
-          onPress={this.props.onPress}
+          changeShownType={this.props.changeShownType}
         />
       );
     }

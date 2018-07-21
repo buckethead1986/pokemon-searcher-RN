@@ -1,10 +1,10 @@
 import React from "react";
-import SwipeContainer from "./components/containers/swipeContainer/SwipeContainer";
+import DataContainer from "./components/containers/dataContainer/DataContainer";
 
 const url = "https://pokeapi.co/api/v2";
 
 export default class App extends React.Component {
   render() {
-    return <SwipeContainer url={url} />;
+    return <DataContainer url={url} />;
   }
 }

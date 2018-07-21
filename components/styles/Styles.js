@@ -23,6 +23,11 @@ export default StyleSheet.create({
     padding: 10,
     margin: 4
   },
+  navigationButton: {
+    margin: 10,
+    marginTop: 30,
+    marginBottom: 20
+  },
   buttonText: {
     fontSize: 18,
     color: "white"

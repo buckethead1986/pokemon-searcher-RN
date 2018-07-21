@@ -29,7 +29,7 @@ export const ratios = [
   "no_damage_to"
 ];
 
-export const typeButtons = [
+export const allTypes = [
   [
     "normal",
     "fighting",

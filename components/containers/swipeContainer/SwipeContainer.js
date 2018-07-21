@@ -3,29 +3,26 @@ import { Text, View } from "react-native";
 import Swiper from "react-native-swiper";
 import PokemonDisplayContainer from "../pokemonDisplayContainer/PokemonDisplayContainer";
 import TypeContainer from "../typeContainer/TypeContainer";
+import AbilityContainer from "../abilityContainer/AbilityContainer";
+import PokemonByTypeContainer from "../pokemonByTypeContainer/PokemonByTypeContainer";
 import TitleText from "../../TitleText";
 import styles from "../../styles/Styles";
 
 class SwipeContainer extends Component {
-  state = {};
-  viewStyle() {
-    return {
-      flex: 1,
-      backgroundColor: "blue",
-      justifyContent: "center",
-      alignItems: "center"
-    };
-  }
-
   //autoscrolls to typeContainer page when type button is clicked on PokemonDisplayContainer page, and updates shownType to the type selected.
-  onPress = (type, value, backgroundColor) => {
-    this.setState({ shownType: type }, () => this.swiper.scrollBy(1));
+  changeShownType = (type, value, backgroundColor) => {
+    this.props.changeShownType(type);
+    this.changeSwipePage(1);
+  };
+
+  changeSwipePage = value => {
+    this.swiper.scrollBy(value);
   };
 
   render() {
     return (
       <Swiper
-        loop={false}
+        loop={true}
         showsPagination={true}
         index={1}
         keyboardShouldPersistTaps="always"
@@ -34,19 +31,27 @@ class SwipeContainer extends Component {
         <View style={styles.container} keyboardShouldPersistTaps="always">
           <PokemonDisplayContainer
             url={this.props.url}
-            onPress={this.onPress}
+            changeShownType={this.changeShownType}
           />
         </View>
 
         <View style={styles.container}>
           <TypeContainer
             url={this.props.url}
-            shownType={this.state.shownType}
+            shownType={this.props.shownType}
+            changeShownType={this.props.changeShownType}
+            changeSwipePage={this.changeSwipePage}
+            checkForTypeDataBeforePingingAPI={
+              this.props.checkForTypeDataBeforePingingAPI
+            }
           />
         </View>
 
-        <View style={this.viewStyle()}>
-          <TitleText label="damage chart" />
+        <View style={styles.container}>
+          <AbilityContainer url={this.props.url} />
+        </View>
+        <View style={styles.container}>
+          <PokemonByTypeContainer url={this.props.url} />
         </View>
       </Swiper>
     );

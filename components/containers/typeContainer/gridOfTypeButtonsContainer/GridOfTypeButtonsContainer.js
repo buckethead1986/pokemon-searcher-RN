@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { TouchableOpacity, Text } from "react-native";
 import { Col, Row, Grid } from "react-native-easy-grid";
-import TypeButton from "./TypeButton";
+import TypeButton from "../../../buttons/TypeButton";
 import { typeData } from "../../../constants/Constants";
 import styles from "../../../styles/Styles";
 
@@ -62,7 +62,7 @@ class GridOfTypeButtonsContainer extends Component {
         type={type}
         value={value}
         style={{ backgroundColor: backgroundColor }}
-        onPress={this.props.onPress}
+        onPress={this.props.changeShownType}
         isDisabled={isDisabled}
       />
     );

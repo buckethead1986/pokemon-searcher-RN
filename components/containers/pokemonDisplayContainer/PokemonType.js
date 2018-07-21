@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { View, Text, TouchableOpacity } from "react-native";
 import { Grid, Row, Col } from "react-native-easy-grid";
 import { typeData } from "../../constants/Constants";
-import TypeButton from "../typeContainer/gridOfTypeButtonsContainer/TypeButton";
+import TypeButton from "../../buttons/TypeButton";
 import styles from "../../styles/Styles";
 
 class PokemonType extends Component {
@@ -12,7 +12,7 @@ class PokemonType extends Component {
         type={type}
         value={value}
         style={{ backgroundColor: backgroundColor }}
-        onPress={this.props.onPress}
+        onPress={this.props.changeShownType}
         isDisabled={isDisabled}
       />
     );

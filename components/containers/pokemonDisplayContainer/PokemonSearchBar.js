@@ -1,7 +1,7 @@
 import Autocomplete from "react-native-autocomplete-input";
 import React, { Component } from "react";
 import { View, ScrollView, Text, TouchableOpacity } from "react-native";
-import PokemonCardImage from "./PokemonCardImage";
+import PokemonCard from "./PokemonCard";
 import styles from "../../styles/Styles";
 
 class PokemonSearchBar extends Component {
@@ -82,9 +82,9 @@ class PokemonSearchBar extends Component {
         />
         {Object.keys(this.state.displayPokemon).length !== 0 ? (
           <ScrollView>
-            <PokemonCardImage
+            <PokemonCard
               displayPokemon={this.state.displayPokemon}
-              onPress={this.props.onPress}
+              changeShownType={this.props.changeShownType}
             />
           </ScrollView>
         ) : (

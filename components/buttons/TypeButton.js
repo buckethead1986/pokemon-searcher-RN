@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { TouchableOpacity, Text } from "react-native";
-import styles from "../../../styles/Styles";
+import styles from "../styles/Styles";
 
 class TypeButton extends Component {
   render() {

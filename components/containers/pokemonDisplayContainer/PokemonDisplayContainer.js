@@ -6,7 +6,10 @@ class PokemonDisplayContainer extends Component {
   render() {
     return (
       <View>
-        <PokemonSearchBar url={this.props.url} onPress={this.props.onPress} />
+        <PokemonSearchBar
+          url={this.props.url}
+          changeShownType={this.props.changeShownType}
+        />
       </View>
     );
   }

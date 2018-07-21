@@ -37,7 +37,7 @@ class DamageRatio extends Component {
         </Text>
         <GridOfTypeButtonsContainer
           data={this.renderDamageRatios(this.props.type)}
-          onPress={this.props.onPress}
+          changeShownType={this.props.changeShownType}
         />
       </View>
     );

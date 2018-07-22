@@ -23,6 +23,11 @@ export default StyleSheet.create({
     padding: 10,
     margin: 4
   },
+  spriteImageButton: {
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 5
+  },
   navigationButton: {
     margin: 10,
     marginTop: 30,

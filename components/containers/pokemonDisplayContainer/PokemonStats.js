@@ -9,10 +9,22 @@ class PokemonStats extends Component {
   createStatRow = stat => {
     return (
       <Row>
-        <Col>
+        <Col
+          style={{
+            paddingLeft: 20,
+            borderWidth: 1.0,
+            borderColor: "black"
+          }}
+        >
           <Text style={styles.damageRatioHeader}>{`${stat}`}: </Text>
         </Col>
-        <Col>
+        <Col
+          style={{
+            paddingLeft: 20,
+            borderWidth: 1.0,
+            borderColor: "black"
+          }}
+        >
           <Text style={styles.damageRatioHeader}>
             {this.props.displayPokemon[stat]}
           </Text>
@@ -27,7 +39,7 @@ class PokemonStats extends Component {
         <Text style={styles.damageRatioHeader}> Base Stats </Text>
         {this.createStatRow("name")}
         {this.createStatRow("weight")}
-        {this.createStatRow("id")}
+        {this.createStatRow(this.props.displayPokemon.stats[0].base_stat)}
         {this.createStatRow("id")}
         {this.createStatRow("id")}
 

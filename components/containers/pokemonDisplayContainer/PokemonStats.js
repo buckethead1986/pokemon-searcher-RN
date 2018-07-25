@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Grid, Row, Col } from "react-native-easy-grid";
-import styles from "../../styles/Styles";
-
-// import Icon from "react-native-vector-icons/FontAwesome";
+import { capitalize } from "../../helperMethods/HelperMethods";
 
 class PokemonStats extends Component {
   createStatRow = stat => {
@@ -16,7 +14,7 @@ class PokemonStats extends Component {
             borderColor: "black"
           }}
         >
-          <Text style={styles.damageRatioHeader}>{`${stat}`}: </Text>
+          <Text style={styles.damageRatioHeader}>{capitalize(`${stat}`)}</Text>
         </Col>
         <Col
           style={{
@@ -26,7 +24,9 @@ class PokemonStats extends Component {
           }}
         >
           <Text style={styles.damageRatioHeader}>
-            {this.props.displayPokemon[stat]}
+            {stat === "name"
+              ? capitalize(this.props.displayPokemon[stat])
+              : this.props.displayPokemon[stat]}
           </Text>
         </Col>
       </Row>
@@ -74,4 +74,12 @@ class PokemonStats extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  damageRatioHeader: {
+    fontSize: 20,
+    marginBottom: 5
+  }
+});
+
 export default PokemonStats;

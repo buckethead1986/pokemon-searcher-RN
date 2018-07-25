@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import { Grid, Row, Col } from "react-native-easy-grid";
 import { typeData } from "../../constants/Constants";
 import TypeButton from "../../buttons/TypeButton";
-import styles from "../../styles/Styles";
 
 class PokemonType extends Component {
   renderButton = ([type, value, backgroundColor], isDisabled) => {

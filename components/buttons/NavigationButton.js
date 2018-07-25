@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { Grid, Row, Col } from "react-native-easy-grid";
 import { capitalize } from "../helperMethods/HelperMethods";
-import styles from "../styles/Styles";
 
 class NavigationButton extends Component {
   render() {
@@ -34,5 +33,23 @@ class NavigationButton extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: "center",
+    borderRadius: 10,
+    padding: 10,
+    margin: 4
+  },
+  navigationButton: {
+    margin: 10,
+    marginTop: 30,
+    marginBottom: 20
+  },
+  buttonText: {
+    fontSize: 17,
+    color: "white"
+  }
+});
 
 export default NavigationButton;

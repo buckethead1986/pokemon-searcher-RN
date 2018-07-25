@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import Swiper from "react-native-swiper";
 import PokemonDisplayContainer from "../pokemonDisplayContainer/PokemonDisplayContainer";
 import TypeContainer from "../typeContainer/TypeContainer";
 import AbilityContainer from "../abilityContainer/AbilityContainer";
 import PokemonByTypeContainer from "../pokemonByTypeContainer/PokemonByTypeContainer";
 import TitleText from "../../TitleText";
-import styles from "../../styles/Styles";
 
 class SwipeContainer extends Component {
   //autoscrolls to typeContainer page when type button is clicked on PokemonDisplayContainer page, and updates shownType to the type selected.
@@ -24,7 +23,7 @@ class SwipeContainer extends Component {
       <Swiper
         loop={true}
         showsPagination={true}
-        index={1}
+        index={0}
         keyboardShouldPersistTaps="always"
         ref={component => (this.swiper = component)}
       >
@@ -57,5 +56,12 @@ class SwipeContainer extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 50
+  }
+});
 
 export default SwipeContainer;

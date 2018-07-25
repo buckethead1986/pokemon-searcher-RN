@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 import { Col, Row, Grid } from "react-native-easy-grid";
 import TypeButton from "../../../buttons/TypeButton";
 import { typeData } from "../../../constants/Constants";
-import styles from "../../../styles/Styles";
 
 //dynamic code to create a grid of 4 columns of TouchableOpacity buttons. Hardcoding this is much quicker,
 //but this is DRYer for reuse in DamageRatios and TypeContainer.
@@ -92,5 +91,25 @@ class GridOfTypeButtonsContainer extends Component {
     return <Grid>{this.createButtonGrid(this.props.data[0])}</Grid>;
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: "center",
+    borderRadius: 10,
+    padding: 10,
+    margin: 4
+  },
+  buttonText: {
+    fontSize: 18,
+    color: "white"
+  },
+  nothingButtonBorder: {
+    borderWidth: 1.0,
+    borderColor: "black"
+  },
+  nothingButtonText: {
+    color: "black"
+  }
+});
 
 export default GridOfTypeButtonsContainer;

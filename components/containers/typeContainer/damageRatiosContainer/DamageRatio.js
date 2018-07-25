@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import GridOfTypeButtonsContainer from "../gridOfTypeButtonsContainer/GridOfTypeButtonsContainer";
 import { capitalize } from "../../../helperMethods/HelperMethods";
-import styles from "../../../styles/Styles";
 
 class DamageRatio extends Component {
   renderDamageRatios = damageRatio => {
@@ -43,5 +42,15 @@ class DamageRatio extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  damageRatioView: {
+    margin: 5
+  },
+  damageRatioHeader: {
+    fontSize: 20,
+    marginBottom: 5
+  }
+});
 
 export default DamageRatio;

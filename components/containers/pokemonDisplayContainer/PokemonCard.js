@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { View, Image, Text } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 import PokemonType from "./PokemonType";
 import PokemonStats from "./PokemonStats";
 import ImageContainer from "../imageContainer/ImageContainer";
-import styles from "../../styles/Styles";
+import { capitalize } from "../../helperMethods/HelperMethods";
 
 export default class PokemonCard extends Component {
   render() {
@@ -22,3 +22,11 @@ export default class PokemonCard extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  header: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 20
+  }
+});

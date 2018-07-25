@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View, Text, StyleSheet } from "react-native";
 import GridOfTypeButtonsContainer from "./gridOfTypeButtonsContainer/GridOfTypeButtonsContainer";
 import DamageRatiosContainer from "./damageRatiosContainer/DamageRatiosContainer";
 import TypeButton from "../../buttons/TypeButton";
 import NavigationButton from "../../buttons/NavigationButton";
 import { allTypes } from "../../constants/Constants";
 import { capitalize } from "../../helperMethods/HelperMethods";
-import styles from "../../styles/Styles";
 
 class TypeContainer extends Component {
   render() {
@@ -39,13 +38,23 @@ class TypeContainer extends Component {
             changeShownType={this.props.changeShownType}
           />
         ) : (
-          <Text style={styles.textView}>
-            Hmm, things seems to be a bit slow
-          </Text>
+          <Text>Hmm, things seems to be a bit slow</Text>
         )}
       </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  centerView: {
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10
+  },
+  pageHeaderText: {
+    fontSize: 20,
+    color: "black"
+  }
+});
 
 export default TypeContainer;

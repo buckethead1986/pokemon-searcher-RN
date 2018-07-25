@@ -1,8 +1,13 @@
 import Autocomplete from "react-native-autocomplete-input";
 import React, { Component } from "react";
-import { View, ScrollView, Text, TouchableOpacity } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  StyleSheet
+} from "react-native";
 import PokemonCard from "./PokemonCard";
-import styles from "../../styles/Styles";
 
 class PokemonSearchBar extends Component {
   constructor(props) {
@@ -94,5 +99,27 @@ class PokemonSearchBar extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  centerView: {
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10
+  },
+  pageHeaderText: {
+    fontSize: 20,
+    color: "black"
+  },
+  autocompleteContainer: {
+    marginLeft: 10,
+    marginRight: 10
+  },
+  itemText: {
+    fontSize: 15,
+    margin: 10,
+    marginLeft: 10,
+    marginRight: 10
+  }
+});
 
 export default PokemonSearchBar;

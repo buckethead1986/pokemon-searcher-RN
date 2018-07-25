@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { TouchableOpacity, Text } from "react-native";
-import styles from "../styles/Styles";
+import { TouchableOpacity, Text, StyleSheet } from "react-native";
 
 class TypeButton extends Component {
   render() {
@@ -21,5 +20,18 @@ class TypeButton extends Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+    alignItems: "center",
+    borderRadius: 10,
+    padding: 10,
+    margin: 4
+  },
+  buttonText: {
+    fontSize: 18,
+    color: "white"
+  }
+});
 
 export default TypeButton;

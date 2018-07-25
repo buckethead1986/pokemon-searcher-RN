@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import DamageRatio from "./DamageRatio";
 import { ratios } from "../../../constants/Constants";
 
@@ -21,9 +21,15 @@ class DamageRatiosContainer extends Component {
 
   render() {
     return (
-      <View style={{ marginBottom: 30 }}>{this.renderDamageRatioView()}</View>
+      <View style={styles.damageRatio}>{this.renderDamageRatioView()}</View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  damageRatio: {
+    marginBottom: 30
+  }
+});
 
 export default DamageRatiosContainer;

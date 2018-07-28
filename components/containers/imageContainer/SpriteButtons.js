@@ -11,7 +11,7 @@ class SpriteButtons extends Component {
   render() {
     return (
       <Grid>
-        <Row style={{ height: 30 }}>
+        <Row style={{ height: 40 }}>
           <Icon
             name="male-symbol"
             size={25}

@@ -4,30 +4,56 @@ import { Grid, Row, Col } from "react-native-easy-grid";
 import { capitalize } from "../../helperMethods/HelperMethods";
 
 class PokemonStats extends Component {
-  createStatRow = stat => {
+  createStatRow = (statName, value) => {
     return (
       <Row>
-        <Col
-          style={{
-            paddingLeft: 20,
-            borderWidth: 1.0,
-            borderColor: "black"
-          }}
-        >
-          <Text style={styles.damageRatioHeader}>{capitalize(`${stat}`)}</Text>
+        <Col style={styles.statItem}>
+          <Text style={styles.damageRatioHeader}>{`${statName}`}</Text>
         </Col>
-        <Col
-          style={{
-            paddingLeft: 20,
-            borderWidth: 1.0,
-            borderColor: "black"
-          }}
-        >
+        <Col style={styles.statItem}>
           <Text style={styles.damageRatioHeader}>
-            {stat === "name"
-              ? capitalize(this.props.displayPokemon[stat])
-              : this.props.displayPokemon[stat]}
+            {this.props.displayPokemon.stats[value].base_stat}
           </Text>
+        </Col>
+      </Row>
+    );
+  };
+
+  createNameOrIdRow = (statName, statValue) => {
+    return (
+      <Row>
+        <Col style={styles.statItem}>
+          <Text style={styles.damageRatioHeader}>{statName}</Text>
+        </Col>
+        <Col style={styles.statItem}>
+          <Text style={styles.damageRatioHeader}>
+            {statValue === "name"
+              ? capitalize(this.props.displayPokemon[statValue])
+              : this.props.displayPokemon[statValue]}
+          </Text>
+        </Col>
+      </Row>
+    );
+  };
+
+  createHeightOrWeightRow = (value, unit) => {
+    result = this.props.displayPokemon[value].toString();
+    if (result.length === 1) {
+      result = "0." + result + ` ${unit}`;
+    } else {
+      result =
+        result.substring(0, result.length - 1) +
+        "." +
+        result.substring(result.length - 1) +
+        ` ${unit}`;
+    }
+    return (
+      <Row>
+        <Col style={styles.statItem}>
+          <Text style={styles.damageRatioHeader}>{capitalize(`${value}`)}</Text>
+        </Col>
+        <Col style={styles.statItem}>
+          <Text style={styles.damageRatioHeader}>{`${result}`}</Text>
         </Col>
       </Row>
     );
@@ -36,40 +62,19 @@ class PokemonStats extends Component {
   render() {
     return (
       <Grid>
-        <Text style={styles.damageRatioHeader}> Base Stats </Text>
-        {this.createStatRow("name")}
-        {this.createStatRow("weight")}
-        {this.createStatRow(this.props.displayPokemon.stats[0].base_stat)}
-        {this.createStatRow("id")}
-        {this.createStatRow("id")}
+        <Text style={styles.header}> Stats </Text>
+        {this.createNameOrIdRow("Pokedex ID", "id")}
+        {this.createNameOrIdRow("Name", "name")}
+        {this.createHeightOrWeightRow("height", "m")}
+        {this.createHeightOrWeightRow("weight", "Kg")}
 
-        <Row>
-          <Col>
-            <Text>name: </Text>
-          </Col>
-          <Col>
-            <Text>{this.props.displayPokemon["name"]}</Text>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Text>Name: {this.props.displayPokemon.name}</Text>
-          </Col>
-          <Col>
-            <Text>Weight: {this.props.displayPokemon.weight}</Text>
-          </Col>
-        </Row>
-        <Text>Pokedex Number: {this.props.displayPokemon.id}</Text>
-        <Text>Speed: {this.props.displayPokemon.stats[0].base_stat}</Text>
-        <Text>
-          Special Defense: {this.props.displayPokemon.stats[1].base_stat}
-        </Text>
-        <Text>
-          Special Attack: {this.props.displayPokemon.stats[2].base_stat}
-        </Text>
-        <Text>Defense: {this.props.displayPokemon.stats[3].base_stat}</Text>
-        <Text>Attack: {this.props.displayPokemon.stats[4].base_stat}</Text>
-        <Text>Hp: {this.props.displayPokemon.stats[5].base_stat}</Text>
+        <Text style={styles.header}> Base IV </Text>
+        {this.createStatRow("HP", 5)}
+        {this.createStatRow("Speed", 0)}
+        {this.createStatRow("Attack", 4)}
+        {this.createStatRow("Defense", 3)}
+        {this.createStatRow("Special Attack", 2)}
+        {this.createStatRow("Special Defense", 1)}
       </Grid>
     );
   }
@@ -79,6 +84,16 @@ const styles = StyleSheet.create({
   damageRatioHeader: {
     fontSize: 20,
     marginBottom: 5
+  },
+  header: {
+    fontSize: 20,
+    marginTop: 15,
+    marginBottom: 5
+  },
+  statItem: {
+    paddingLeft: 20,
+    borderWidth: 1.0,
+    borderColor: "black"
   }
 });
 

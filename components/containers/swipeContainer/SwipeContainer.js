@@ -23,7 +23,7 @@ class SwipeContainer extends Component {
       <Swiper
         loop={true}
         showsPagination={true}
-        index={1}
+        index={0}
         keyboardShouldPersistTaps="always"
         ref={component => (this.swiper = component)}
       >

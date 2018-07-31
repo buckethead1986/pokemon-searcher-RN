@@ -21,7 +21,11 @@ class DamageRatiosContainer extends Component {
 
   render() {
     return (
-      <View style={styles.damageRatio}>{this.renderDamageRatioView()}</View>
+      <View>
+        <View style={styles.damageRatio}>
+          {this.renderDamageRatioView()}
+        </View>{" "}
+      </View>
     );
   }
 }

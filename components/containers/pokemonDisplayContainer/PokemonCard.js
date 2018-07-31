@@ -16,8 +16,6 @@ export default class PokemonCard extends Component {
           changeShownType={this.props.changeShownType}
         />
         <PokemonStats displayPokemon={this.props.displayPokemon} />
-
-        <Text>{this.props.displayPokemon.sprites.front_default}</Text>
       </View>
     );
   }

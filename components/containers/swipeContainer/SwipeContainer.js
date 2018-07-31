@@ -18,12 +18,14 @@ class SwipeContainer extends Component {
     this.swiper.scrollBy(value);
   };
 
+  //this,.props.shownType works fine in TypeCOntainer, but breaks in AbilityContainer, and I don't know why. Console.logs show the data coming through,
+  //but I get 'undefined is not an object' errors when I try to access it. re-fetching the data in AbilityContainer works fine, but defeats the purpose of props.
   render() {
     return (
       <Swiper
         loop={true}
         showsPagination={true}
-        index={0}
+        index={1}
         keyboardShouldPersistTaps="always"
         ref={component => (this.swiper = component)}
       >
@@ -47,7 +49,10 @@ class SwipeContainer extends Component {
         </View>
 
         <View style={styles.container}>
-          <AbilityContainer url={this.props.url} />
+          <AbilityContainer
+            url={this.props.url}
+            shownType={this.props.shownType}
+          />
         </View>
         <View style={styles.container}>
           <PokemonByTypeContainer url={this.props.url} />

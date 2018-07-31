@@ -3,7 +3,7 @@ import { View } from "react-native";
 import SwipeContainer from "../swipeContainer/SwipeContainer";
 
 //I decided against using redux, rather to place data in a parent component, and pass props around.
-//i've used redux in other projects, but this app will just pull from an API, and I decided redux wasn't necessary.
+//I've used redux in other projects, but this app will just pull from an API, and I decided redux wasn't necessary.
 //Time will tell if that was a bad idea, but hey, it's my first react native project :D
 class DataContainer extends Component {
   state = {

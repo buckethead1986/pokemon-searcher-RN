@@ -24,7 +24,6 @@ export default class PokemonCard extends Component {
 const styles = StyleSheet.create({
   header: {
     fontSize: 20,
-    textAlign: "center",
-    margin: 20
+    textAlign: "center"
   }
 });

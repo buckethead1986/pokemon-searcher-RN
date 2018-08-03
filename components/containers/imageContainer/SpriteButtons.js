@@ -14,13 +14,13 @@ class SpriteButtons extends Component {
         <Row style={{ height: 40 }}>
           <Icon
             name="male-symbol"
-            size={25}
+            size={30}
             style={styles.spriteImageButton}
             onPress={() => this.props.changeImage("front_default")}
           />
           <Icon
             name="female-symbol"
-            size={25}
+            size={30}
             style={styles.spriteImageButton}
             color={
               this.props.displayPokemon.sprites.front_female !== null
@@ -34,14 +34,14 @@ class SpriteButtons extends Component {
           />
           <Icon
             name="male-symbol"
-            size={25}
+            size={30}
             color="purple"
             style={styles.spriteImageButton}
             onPress={() => this.props.changeImage("front_shiny")}
           />
           <Icon
             name="female-symbol"
-            size={25}
+            size={30}
             style={styles.spriteImageButton}
             color={
               this.props.displayPokemon.sprites.front_shiny_female !== null

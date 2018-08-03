@@ -61,13 +61,12 @@ class PokemonStats extends Component {
 
   render() {
     return (
-      <Grid>
+      <Grid style={styles.gridStyle}>
         <Text style={styles.header}> Stats </Text>
         {this.createNameOrIdRow("Pokedex ID", "id")}
         {this.createNameOrIdRow("Name", "name")}
         {this.createHeightOrWeightRow("height", "m")}
         {this.createHeightOrWeightRow("weight", "Kg")}
-
         <Text style={styles.header}> Base IV </Text>
         {this.createStatRow("HP", 5)}
         {this.createStatRow("Speed", 0)}
@@ -94,6 +93,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     borderWidth: 1.0,
     borderColor: "black"
+  },
+  gridStyle: {
+    paddingBottom: 10
   }
 });
 

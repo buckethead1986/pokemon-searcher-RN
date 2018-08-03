@@ -25,7 +25,7 @@ class NavigationButton extends Component {
               onPress={() => this.props.changeSwipePage(2)}
               disabled={this.props.isDisabled}
             >
-              <Text style={styles.buttonText}>{capitalizedType} Pokemom</Text>
+              <Text style={styles.buttonText}>{capitalizedType} Pokemon</Text>
             </TouchableOpacity>
           </Col>
         </Row>

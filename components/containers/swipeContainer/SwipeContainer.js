@@ -50,10 +50,15 @@ class SwipeContainer extends Component {
           <AbilityContainer
             url={this.props.url}
             shownType={this.props.shownType}
+            changeSwipePage={this.changeSwipePage}
           />
         </View>
         <View style={styles.container}>
-          <PokemonByTypeContainer url={this.props.url} />
+          <PokemonByTypeContainer
+            url={this.props.url}
+            shownType={this.props.shownType}
+            changeSwipePage={this.changeSwipePage}
+          />
         </View>
       </Swiper>
     );

@@ -13,7 +13,7 @@ class Ability extends Component {
         <Text>{this.props.shownType.generation.name}</Text>
         <Text>{this.props.shownType.moves[2].name}</Text>
         <TypeButton
-          type={this.props.ability.name}
+          type={this.props.pokemon.name}
           value={typeData[this.props.shownType.name][1]}
           style={{ backgroundColor: typeData[this.props.shownType.name][2] }}
           onPress={() => this.props.changeSwipePage(1)}

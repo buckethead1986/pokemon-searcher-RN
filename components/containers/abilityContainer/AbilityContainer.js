@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, ScrollView, Text, StyleSheet } from "react-native";
 import Ability from "./Ability";
 
 class AbilityContainer extends Component {
@@ -10,15 +10,31 @@ class AbilityContainer extends Component {
   //     .then(res => res.json())
   //     .then(json => this.setState({ display: json }));
   // }
+
+  createMoveSet = () => {
+    const abilities = this.props.shownType.moves.map(ability => {
+      return (
+        <Ability
+          key={`${this.props.shownType.name}-${ability.name}`}
+          url={this.props.url}
+          ability={ability}
+          shownType={this.props.shownType}
+          changeSwipePage={this.props.changeSwipePage}
+        />
+      );
+    });
+    return abilities;
+  };
+
   render() {
     return (
-      <View>
+      <ScrollView>
         {Object.keys(this.props.shownType).length !== 0 ? (
-          <Ability url={this.props.url} shownType={this.props.shownType} />
+          this.createMoveSet()
         ) : (
           <Text>Hmm, things seems to be a bit weird</Text>
         )}
-      </View>
+      </ScrollView>
     );
   }
 }

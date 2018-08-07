@@ -3,14 +3,6 @@ import { View, ScrollView, Text, StyleSheet } from "react-native";
 import PokemonByType from "./PokemonByType";
 
 class PokemonByTypeContainer extends Component {
-  // state = { display: {} };
-  //
-  // componentDidMount() {
-  //   fetch(`https://pokeapi.co/api/v2/type/1`)
-  //     .then(res => res.json())
-  //     .then(json => this.setState({ display: json }));
-  // }
-
   createPokemonList = () => {
     const pokemonList = this.props.shownType.pokemon.map(pokemon => {
       return (

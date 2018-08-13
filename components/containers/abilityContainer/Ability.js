@@ -11,7 +11,7 @@ class Ability extends Component {
         <Text>{this.props.shownType.id}</Text>
         <Text>{typeData[this.props.shownType.name][2]}</Text>
         <Text>{this.props.shownType.generation.name}</Text>
-        <Text>{this.props.shownType.moves[2].name}</Text>
+        <Text>{this.props.shownType.moves[1].name}</Text>
         <Text>{this.props.shownType.moves[4].name}</Text>
         <TypeButtong
           type={this.props.ability.name}

@@ -23,8 +23,9 @@ class AbilityContainer extends Component {
       <ScrollView>
         {Object.keys(this.props.shownType).length !== 0 ? (
           this.createMoveSet()
+          this.createMoveSet()
         ) : (
-          <Text>Hmm, things seems to be a bit weird</Text>
+          <Text>Hmm, slow internet today</Text>
         )}
       </ScrollView>
     );

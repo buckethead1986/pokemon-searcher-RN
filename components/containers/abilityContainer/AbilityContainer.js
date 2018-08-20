@@ -20,18 +20,32 @@ class AbilityContainer extends Component {
 
   render() {
     return (
-      <ScrollView>
-        {Object.keys(this.props.shownType).length !== 0 ? (
-          this.createMoveSet()
-          this.createMoveSet()
-        ) : (
-          <Text>Hmm, slow internet today</Text>
-        )}
-      </ScrollView>
+      <View>
+        <View style={styles.centerView}>
+          <Text style={styles.pageHeaderText}>Abilities by Type</Text>
+        </View>
+        <ScrollView>
+          {Object.keys(this.props.shownType).length !== 0 ? (
+            this.createMoveSet()
+          ) : (
+            <Text>Hmm, slow internet today</Text>
+          )}
+        </ScrollView>
+      </View>
     );
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  centerView: {
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10
+  },
+  pageHeaderText: {
+    fontSize: 20,
+    color: "black"
+  }
+});
 
 export default AbilityContainer;

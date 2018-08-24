@@ -18,7 +18,6 @@ class Ability extends Component {
   }
 
   render() {
-    // console.log(this.props.ability, this.state.ability);
     return (
       <View
         style={{

@@ -23,6 +23,7 @@ class AbilityContainer extends Component {
       <View>
         <View style={styles.centerView}>
           <Text style={styles.pageHeaderText}>Abilities by Type</Text>
+          <Text style={styles.pageHeaderText}>Secondary Abilities by Type</Text>
         </View>
         <ScrollView>
           {Object.keys(this.props.shownType).length !== 0 ? (
